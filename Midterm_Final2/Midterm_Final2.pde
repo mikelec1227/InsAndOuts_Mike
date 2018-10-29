@@ -8,7 +8,7 @@ Find your way out of the haunted asylum but beware of the ghosts that roam its h
 
 //Images
 PImage Asylum;
-PImage LeftPath;
+PImage LeftPath1;
 PImage RightPath;
 PImage Straight;
 PImage Basement;
@@ -22,7 +22,7 @@ PImage YouDiedScreen;
 String state="MTEC Asylum";
 
 void setup(){
-  size(950,950);
+  size(850,850);
   textAlign(CENTER);
   textSize(55);
   fill(150,60,60);
@@ -30,12 +30,12 @@ void setup(){
   
   //Image Load
   Asylum= loadImage("Asylum.png");
-  LeftPath= loadImage("LefPath.png");
+  LeftPath1= loadImage("ghostnurse.png");
   RightPath= loadImage("RightPath.png");
   Straight= loadImage("Straight.png");
   Basement= loadImage("Basement.png");
-  LeftPath2= loadImage("LeftPath2.png");
-  RightPath2= loadImage("RightPath2.png");
+  LeftPath2= loadImage("doctorghost.png");
+  RightPath2= loadImage("RightPath2.5.png");
   Straight2= loadImage("Straight2.png");
   Basement2= loadImage("Basement2.png");
   WinScreen= loadImage("WinScreen.png");
@@ -44,100 +44,132 @@ void setup(){
 
 
 void draw(){
-  background(Asylum);
   if(state=="MTEC Asylum"){
-  fill(0);
+  fill(250,0,0);
+  imageMode(CENTER);
+  image(Asylum, 425, 425, 850, 850);
+  textSize(100);
   text("MTEC Asylum",width/2,height/2);
   fill(250,0,0);
+  
 }
 
 else if(state=="escape"){
-    background(Asylum);
-    fill(0);
-    text("You have been trapped in the infamous, haunted, macabre MTEC Asylum. Figure out a way to escape or else you will join the ghosts that haunt its walls and be trapped here for all eternity.", width/2,height/2);
-    textAlign(CENTER);
-    fill(50);
-    textSize(15);
+    fill(250,0,0);
+    imageMode(CENTER);
+    image(Asylum, 425, 425, 850, 850);
+    textSize(45);
+    text("Escape the infamous MTEC Asylum!!!", width/2,height/2);
+    fill(255,0,0);
  }
     
   else if(state=="choosepath"){
-    background(150,0,0);
-    fill(0);
-    textSize(13);
-    text("The Door on the Left leads to a hallway filled with operating rooms. Do you dare go this way? Press R to take the right passageway",width/2,150);
-    text("The Door on the Right leads to a dark hallway but may be a way out. Press L to take the left passageway",width/2,270); 
-    text("The Path Straight may lead to a way out. Press S to go straight.",width/2,360);
-    text("Take the Stairs down to the basement. Press B for basement.", width/2, 480);
-    fill(0);
+    fill(250,0,0);
+    imageMode(CENTER);
+    image(Asylum, 425, 425, 850, 850);
+    textSize(25);
+    text("Take the Door on the Left. Press L",width/2,150);
+    text("Take the Door on the Right. Press R",width/2,270); 
+    text("Take the Path Straight down the Hallway. Press S",width/2,360);
+    text("Take the Stairs down to the basement. Press B.", width/2, 480);
+    fill(255,0,0);
   }
     
  //Left Path Storyline
  else if(state=="left"){
-   text("A ghostly nurse beckons you to join her in the afterlife!!",height/2,width/2);
-   textSize(20);
-   fill(255);
-   background(LeftPath);
+    fill(250,0,0);
+    imageMode(CENTER);
+    image(LeftPath1, 425, 425, 850, 850);
+    textSize(25);
+    text("A ghostly nurse beckons you to join her in the afterlife!!",height/2,width/2);
+    textSize(25);
+    fill(255,0,0);
   }
   else if(state=="left2"){
-    text("You escaped the ghost nurse but another spectre, awaits you: The phantom doctor!!!", height/2,width/2);
+    fill(250,0,0);
+    imageMode(CENTER);
+    image(LeftPath2, 425, 425, 850, 850);
     textSize(20);
-    fill(255);
-    background(LeftPath2);
+    text("You escaped the ghost nurse but another spectre, awaits you: The phantom doctor!!!",height/2,width/2);
+    textSize(25);
+    fill(255,0,0);
   }
   
   
   //Right Path Storyline
   else if(state=="right"){
-  text("The Ghost of a notorious serial killer, The Strangler, has attacked you.", height/2, width/2);
-  textSize(20);
-  fill(255);
-  background (RightPath);
+    fill(250,0,0);
+    imageMode(CENTER);
+    image(RightPath, 425, 425, 850, 850);
+    textSize(25);
+    text("The Ghost of a notorious serial killer, The Strangler, has attacked you.", width/2,height/2);
+    fill(255,0,0);
   }
   else if (state=="right2"){
-  text("The Strangler stabbed you and you make your way down the hallway bleeding and screaming for help.", height/2, width/2);
-  textSize(20);
-  fill(255);
-  background (RightPath);
+    fill(250,0,0);
+    imageMode(CENTER);
+    image(RightPath2, 425, 425, 850, 850);
+    textSize(15);
+    text("The Strangler stabbed you and you make your way down the hallway bleeding and screaming for help.", width/2,height/2);
+    fill(255,0,0);
   }
   
   
  //Straight Path Storyline
  else if(state=="straight"){
-  text("You make your way down the straight path but suddenly the floor caves in sending you crashing down to the level below!!", height/2, width/2);
-  textSize(20);
-  fill(255);
-  background (Straight);
+ fill(250,0,0);
+ imageMode(CENTER);
+ image(Straight, 425, 425, 850, 850);
+ textSize(25);
+ text("You head down the Straight path but the floor caves in!!!",height/2,width/2);
+ textSize(25);
+ fill(255,0,0);
   }
+ 
   else if (state=="straight2"){
-  text("The ghosts of two young girls have appeared. They want you to play with them. ", height/2, width/2);
-  textSize(20);
-  fill(255);
-  background (Straight2);
+  fill(250,0,0);
+ imageMode(CENTER);
+ image(Straight2, 425, 425, 850, 850);
+ textSize(17);
+ text("The ghosts of two young girls have appeared. They want you to play with them. ",height/2,width/2);
+ textSize(25);
+ fill(255,0,0);
   }
   
  //Basement Path Storyline
  else if(state=="basement"){
-  text("Down in the basement you see the half eaten remains of several people. There is something in the basement with you.", height/2, width/2);
-  textSize(20);
-  fill(255);
-  background (Basement);
+ fill(250,0,0);
+ imageMode(CENTER);
+ image(Basement, 425, 425, 850, 850);
+ textSize(20);
+ text("You find the remains of several dead people. What happened here?",height/2,width/2);
+ textSize(25);
+ fill(255,0,0);
   }
+ 
   else if (state=="basement2"){
-  text("You are attacked by some kind of half human, half pig creature. Prepare to be its next meal.", height/2, width/2);
-  textSize(20);
-  fill(255);
-  background (Basement2);
+  fill(250,0,0);
+ imageMode(CENTER);
+ image(Basement2, 425, 425, 850, 850);
+ textSize(20);
+ text("You are attacked by some kind of half human, half pig creature!!",height/2,width/2);
+ textSize(25);
+ fill(255,0,0);
   }
  
  else if(state=="dead"){
-   background (YouDiedScreen);
+    fill(250,0,0);
+    imageMode(CENTER);
+    image(YouDiedScreen, 425, 425, 850, 850);
  }
  
  else if (state=="win"){
- text("Congratulations. You escaped the Asylum with your life!!", height/2, width/2);
-   textAlign(CENTER);
-   fill(255);
-   background (WinScreen);
+   fill(250,0,0);
+   imageMode(CENTER);
+   image(WinScreen, 425, 425, 850, 850);
+   textSize(25);
+   text("Congratulations. You escaped the Asylum with your life!!", width/2,height/2);
+   fill(255,0,0);
  }
 }
 
@@ -187,6 +219,9 @@ void mousePressed(){
     }
     else if(state=="win"){
         state="MTEC Asylum";
+    }
+    else if(state=="dead"){
+      state="MTEC Asylum";
     }
  
 }
