@@ -4,6 +4,15 @@ The sensor inside the box can sense movement up to 200 centimeters. Once movemen
 detected, the piezo buzzer and light strip will go off, detering any would be intruder
 from entering your home
 Can also be used for a fun greeting in the doorway for non intruders
+
+Pieces Used to build:
+Arduino
+Breadboard
+USB External Power Suppl and 12v Power Adapter
+RGB LED Strip Light
+MOSFET Transistors
+Ultrasonic Ping Sensor
+Piezo Buzzer
  */
 
 
@@ -15,11 +24,11 @@ Can also be used for a fun greeting in the doorway for non intruders
 #define GREEN_PIN   6
 #define BLUE_PIN  4
  
-#define TRIGGER_PIN  10  
-#define ECHO_PIN     11
-#define MAX_DISTANCE 200 //Distance in centimeters for the sensor
+#define TRIGGER  9
+#define ECHO  10
+#define DISTANCE 100 //Distance in centimeters for the sensor
  
-NewPing sonar(TRIGGER_PIN, ECHO_PIN, MAX_DISTANCE);
+NewPing sonar(TRIGGER, ECHO, DISTANCE);
 boolean triggered = false;
  
  
@@ -29,19 +38,19 @@ int toneVal;
  
 void setup(){
    
- //set pinModes for RGB strip
+ //Pins for the LED lights
    pinMode(RED_PIN,OUTPUT);
    pinMode(BLUE_PIN,OUTPUT);
    pinMode(GREEN_PIN,OUTPUT);
    
    pinMode(ALARM, OUTPUT);
  
-   //reset lights
+   //Resetting the lights
    analogWrite(RED_PIN,0);
    analogWrite(BLUE_PIN,0);
-   analogWrite(RED_PIN,0);
+   analogWrite(GREEN_PIN,0);
  
-  delay(5000);
+delay(50);
 Serial.begin(115200);
  
  
@@ -63,15 +72,24 @@ void loop(){
 }
  
 void alarm(){
-   color(255,0,0); //red
-   delay(100);
-   color(255,255,0); //yelow
-   delay(100);
-   
+   color(255,0,0);
+   delay(25);
+   color(0,255,0);
+   delay(25);
+   color(0,0,255);
+   delay(25);
+   color(255,255,0);
+   delay(25);
+
+ 
    for (int x=0; x<180; x++) {
-    sinVal = (sin(x*(3.1412/180)));
-    toneVal = 2000+(int(sinVal*1000));
-    NewTone(ALARM, toneVal);
+    sinVal = (sin(x*(3.1412/180)));      
+    toneVal = 2000+(int(sinVal*1000));    
+    NewTone(ALARM, toneVal);   
+
+     /*Had to do alot of research on this part because I wasnt too familiar with the codes for piezo
+      buzzers. 
+      */            
   }
 }
  
